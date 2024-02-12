@@ -52,23 +52,25 @@ print("\n****CHECK YOUR TELLO WIFI ADDRESS****")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 ready = input('\nAre you ready to take flight: ')
 
+if ready.lower() == 'yes':
+    print("\nStarting Drone!\n")
 
-try:
-    if ready.lower() == 'yes':
-        print("\nStarting Drone!\n")
+    sendmsg('command', 0)
+    sendmsg('takeoff')
+    sendmsg('forward 80')
+    sendmsg('ccw 120')
+    sendmsg('forward 80')
+    sendmsg('ccw 120')
+    sendmsg('forward 80')
+    sendmsg('ccw 120')
 
-        sendmsg('command', 0)
-        sendmsg('takeoff')
-        sendmsg('forward 80')
-        sendmsg('ccw 90')
-        sendmsg('land')
+    sendmsg('land')
 
-        print('\nGreat Flight!!!')
+    print('\nGreat Flight!!!')
 
-    else:
-        print('\nMake sure you check WIFI, surroundings, co-pilot is ready, re-run program\n')
-except KeyboardInterrupt:
-    sendmsg('emergency')
+else:
+    print('\nMake sure you check WIFI, surroundings, co-pilot is ready, re-run program\n')
+
 
 breakr = True
 sock.close()
