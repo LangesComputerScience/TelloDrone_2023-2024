@@ -57,7 +57,10 @@ if ready.lower() == 'yes':
 
     sendmsg('command', 0)
     sendmsg('takeoff')
-    sendmsg('flip r')
+    sendmsg('ccw 90')
+    sendmsg('cw 90')
+    sendmsg('ccw 90')
+    sendmsg('cw 90')
     sendmsg('land')
 
     print('\nGreat Flight!!!')
